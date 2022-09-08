@@ -1,4 +1,6 @@
 ﻿using Dogao_do_Jao.Context;
+using Dogao_do_Jao.Repositories;
+using Dogao_do_Jao.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace Dogao_do_Jao;
@@ -17,6 +19,9 @@ namespace Dogao_do_Jao;
         {
             services.AddDbContext<AppDbContext>(options => 
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddTransient<ILancheRepository, LancheRepository>();
+            services.AddTransient<ICategoriaRepository, CategoriaRepository>();
 
             services.AddControllersWithViews();
         }
