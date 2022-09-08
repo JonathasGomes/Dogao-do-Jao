@@ -9,7 +9,6 @@ namespace Dogao_do_Jao.Controllers
 
         public IActionResult Index()
         {
-            TempData["Nome"] = "Jão";
             return View();
         }
 
