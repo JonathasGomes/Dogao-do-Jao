@@ -1,4 +1,5 @@
 ﻿using Dogao_do_Jao.Repositories.Interfaces;
+using Dogao_do_Jao.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Dogao_do_Jao.Controllers
@@ -14,16 +15,22 @@ namespace Dogao_do_Jao.Controllers
 
         public IActionResult List()
         {
-            ViewData["Titulo"] = "Todos os lanches";
-            ViewData["Data"] = DateTime.Now;
+            //ViewData["Titulo"] = "Todos os lanches";
+            //ViewData["Data"] = DateTime.Now;
 
-            var lanches = _lancheRepository.Lanches;
-            var totalLanches = lanches.Count();
+            //var lanches = _lancheRepository.Lanches;
+            //var totalLanches = lanches.Count();
 
-            ViewBag.Total = "Total de lanches : ";
-            ViewBag.TotalLanches = totalLanches;
+            //ViewBag.Total = "Total de lanches : ";
+            //ViewBag.TotalLanches = totalLanches;
 
-            return View(lanches);
+            //return View(lanches);
+
+            var lanchesListViewModel = new LancheListViewModel();
+            lanchesListViewModel.Lanches = _lancheRepository.Lanches;
+            lanchesListViewModel.CategoriaAtual = "Categoria Atual";
+
+            return View(lanchesListViewModel);
         }
     }
 }
