@@ -13,5 +13,7 @@ namespace Dogao_do_Jao.Context
         public DbSet<Categoria> Categorias { get; set; }
 
         public DbSet<Lanche> Lanches { get; set; }
+
+        public DbSet<CarrinhoCompraItem> CarrinhoCompraItems { get; set; }
     }
 }
